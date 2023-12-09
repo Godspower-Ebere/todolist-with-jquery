@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="JQUERY/jquery.js"></script>
+	<meta http-equiv="rfresh" content="1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="icon/css/all.css">
+	<link rel="stylesheet" type="text/css" href="icon/css/fontawesome.min.css">
+	<script type="text/javascript">
+	$(document).ready(
+		function(){
+			var add=$(".submit");
+			var i=0; 
+			add.click(
+				function(){
+					var input=$(".input").val();
+					
+					if (input.length >1) {
+						i++;
+						$("ul").append("<li> <i>"+i+"&nbsp &nbsp &nbsp <b>"+input+"</b></i>   <div class='button'>					<input type='checkbox' class='check' > <button><i class='fa fa-trash'></i></button></div> </li>");
+						$(".input").val("");
+					}
+				});
+		// $("button").click(function(){
+		// $(this).parent().parent().slideUp(500);
+		// $(this).parent().parent().css({"background":"red"});
+		// 	});
+		$("ul").on("click","button",function(){
+			$(this).parent().parent().slideUp(500);
+			$(this).parent().parent().css({"background":"red",
+										"color":"white"});
+		});
+		$("ul").on("click",".check",function(){
+			$(this).parent().parent().children("i").css({"background":"green",
+				"color":"white", "text-decoration":"line-through","padding":"0 20px"})
+		});
+		});
+
+</script>
+</head>
+<body>
+	<h1>TODO LIST</h1>
+	<div class="cont">
+		<div class="insert">
+			<input type="text" class="input" name="">
+			<input type="button" name="" value="Add" class="submit">
+		</div>
+		
+		<ul></ul>
+	</div>
+</body>
+</html>
